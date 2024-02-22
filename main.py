@@ -1,6 +1,20 @@
-import face_recognition # face recog library
-import os # operating system control
-import numpy as num # 2d array data control
-import cv2 # opencv library for managing data
+import cv2
+import numpy as np
+import face_recognition
 
-input_video_path = "test.mp4" # this is mp4
+capture = cv2.VideoCapture(0)
+
+# use training data for face in frame
+
+while True:
+    ret, frame = capture.read()
+
+    # use face positions to create rectangle each frame 
+    # frame = cv2.rectangle(frame, (800, 200), (1200,600), (255, 255, 255), 10)
+
+    # show the edited frame with the rectangle
+    cv2.imshow('Video', frame)
+
+    # quit the program
+    if cv2.waitKey(1) == ord("q"):
+        break
